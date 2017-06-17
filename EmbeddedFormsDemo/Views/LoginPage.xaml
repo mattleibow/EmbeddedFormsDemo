@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:EmbeddedFormsDemo.Converters"
+             x:Class="EmbeddedFormsDemo.Views.LoginPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <app:NegateConverter x:Key="Negate" />
+            <app:NullInvisibilityConverter x:Key="NullInvisibility" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <StackLayout Padding="24" Spacing="12" Grid.Row="1">
+
+                <Entry Keyboard="Email" Placeholder="username or email"
+                       Text="{Binding UserName}" HorizontalTextAlignment="Center"
+                       IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}" />
+                <Entry IsPassword="True" Placeholder="password" 
+                       Text="{Binding Password}" HorizontalTextAlignment="Center"
+                       IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}" />
+
+                <Button Text="Log In" Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}" />
+
+                <Label Text="{Binding ErrorMessage}" HorizontalTextAlignment="Center"
+                       FontSize="Small" TextColor="Red" IsVisible="{Binding ErrorMessage, Converter={StaticResource NullInvisibility}}" />
+
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

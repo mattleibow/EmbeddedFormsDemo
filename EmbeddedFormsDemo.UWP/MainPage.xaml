@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="EmbeddedFormsDemo.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EmbeddedFormsDemo.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <local:NullInvisibilityConverter x:Key="NullInvisibility" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Padding="24" Visibility="{Binding WelcomeText, Converter={StaticResource NullInvisibility}}">
+
+            <TextBlock Text="{Binding WelcomeText}" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,12" />
+
+            <TextBlock Text="Yes, that name you see above is just random, you are not a new person after running this app." Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+
+            <TextBlock Text="As you can see by this screen, I have mad native UWP development skillz - that's right, with a 'z'." Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+
+            <TextBlock Text="Anyway, back to what we are really here for: this is a native page, but, that login screen is 100% shared code!" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+
+            <TextBlock Text="And, just to &quot;prove&quot; that we are native, click the button below to see a native UWP element!" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+
+            <Button Content="Open flyout">
+                <Button.Flyout>
+                    <Flyout>
+                        <TextBlock TextWrapping="Wrap" Text="This is some text in a flyout."/>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</Page>
