@@ -1,6 +1,8 @@
 ﻿using System;
 using UIKit;
 
+using EmbeddedFormsDemo.Models;
+
 namespace EmbeddedFormsDemo.iOS
 {
 	public partial class ViewController : UIViewController
@@ -10,11 +12,20 @@ namespace EmbeddedFormsDemo.iOS
 		{
 		}
 
+		public User User { get; set; }
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
-			// Perform any additional setup after loading the view, typically from a nib.
+			welcomeLabel.Text = $"Welcome back {User.Name}!";
+
+			OnSegmentChanged(segmentedControl);
+		}
+
+		partial void OnSegmentChanged(UISegmentedControl sender)
+		{
+			statusLabel.Text = $"You are on page number: {sender.SelectedSegment}";
 		}
 	}
 }

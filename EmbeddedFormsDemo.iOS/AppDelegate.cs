@@ -16,14 +16,28 @@ namespace EmbeddedFormsDemo.iOS
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			//// initialize Xamarin.Forms so we can use it later
-			//Xamarin.Forms.Forms.Init();
+			// initialize Xamarin.Forms so we can use it later
+			Xamarin.Forms.Forms.Init();
 
-			//// create the login page (Xamarin.Forms ContentPage)
-			//var loginPage = new LoginPage();
+			// create the login page (Xamarin.Forms ContentPage)
+			var loginPage = new LoginPage();
 
-			//// show the login screen
-			//Window.RootViewController = loginPage.CreateViewController();
+			// attach an event to navigate to the main view controller after logging in
+			loginPage.LoggedIn += user =>
+			{
+				// create the main view controller (Native iOS UIViewController)
+				var storyboard = UIStoryboard.FromName("Main", null);
+				var main = storyboard.InstantiateInitialViewController() as ViewController;
+
+				main.User = user;
+
+				// replace the login with the main view controller
+				Window.RootViewController = main;
+				UIView.Transition(Window, 0.5, UIViewAnimationOptions.TransitionFlipFromRight, () => Window.RootViewController = main, null);
+			};
+
+			// show the login screen
+			Window.RootViewController = loginPage.CreateViewController();
 
 			return true;
 		}
