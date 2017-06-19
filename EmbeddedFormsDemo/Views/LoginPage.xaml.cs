@@ -11,6 +11,8 @@ namespace EmbeddedFormsDemo.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
+		public const string LoginMessage = "login";
+
 		private readonly JsonPlaceholderApi api;
 
 		private string errorMessage;
@@ -45,7 +47,7 @@ namespace EmbeddedFormsDemo.Views
 			else
 			{
 				// let the app know we are finished
-				LoggedIn?.Invoke(user);
+				MessagingCenter.Send(user, LoginMessage);
 			}
 
 			IsBusy = false;
@@ -68,7 +70,5 @@ namespace EmbeddedFormsDemo.Views
 		public string Password { get; set; }
 
 		public ICommand LoginCommand { get; }
-
-		public event Action<User> LoggedIn;
 	}
 }

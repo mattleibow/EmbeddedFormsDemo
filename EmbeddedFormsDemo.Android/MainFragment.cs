@@ -1,8 +1,10 @@
 ﻿using System;
 using Android.App;
 using Android.OS;
-using Android.Support.Design.Widget;
 using Android.Views;
+using Android.Widget;
+
+using EmbeddedFormsDemo.Models;
 
 namespace EmbeddedFormsDemo.Android
 {
@@ -15,22 +17,34 @@ namespace EmbeddedFormsDemo.Android
 			// create your fragment here
 		}
 
+		public User User => ((MainActivity)Activity).User;
+
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			var view = inflater.Inflate(Resource.Layout.main_fragment, container, false);
 
-			var fab = view.FindViewById<FloatingActionButton>(Resource.Id.fab);
-			fab.Click += OnFabClicked;
+			var welcome = view.FindViewById<TextView>(Resource.Id.welcome);
+			var userInfo = view.FindViewById<TextView>(Resource.Id.user_info);
+			if (User == null)
+			{
+				welcome.Text = Resources.GetString(Resource.String.welcome_unknown);
+				userInfo.Visibility = ViewStates.Gone;
+			}
+			else
+			{
+				welcome.Text = string.Format(Resources.GetString(Resource.String.welcome_user), User.Name);
+				userInfo.Visibility = ViewStates.Visible;
+			}
+
+			var login = view.FindViewById<Button>(Resource.Id.login);
+			login.Click += OnLoginClicked;
 
 			return view;
 		}
 
-		private void OnFabClicked(object sender, EventArgs e)
+		private void OnLoginClicked(object sender, EventArgs e)
 		{
-			const string message = "As you can probably tell, I am not that good at building native apps.";
-			Snackbar.Make(View, message, Snackbar.LengthLong)
-				.SetAction("OK", delegate { })
-				.Show();
+			((MainActivity)Activity).DisplayLogin();
 		}
 	}
 }

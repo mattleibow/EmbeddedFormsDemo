@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Embedded Forms</string>
+  <string name="welcome_unknown">Welcome to the app, stranger!</string>
+  <string name="welcome_user">Welcome back {0}!</string>
+  <string name="user_info">I know, that is not your name... How am I suppoed to know your real name? The whole login is fake!</string>
+  <string name="info">This is a complex native Xamarin.Android AXML layout. It took me an unnaturally long time to do!\n\nI hope you will enjoy using the embedded Xamarin.Forms login view made with XAML. It has all the usual things that you may need: data binding, converters, resource dictionaries, etc.</string>
+  <string name="login">Login</string>
 </resources>

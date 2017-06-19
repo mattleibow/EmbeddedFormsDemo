@@ -32,7 +32,8 @@
                         IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}" />
 
                 <Label Text="{Binding ErrorMessage}" HorizontalTextAlignment="Center"
-                       FontSize="Small" TextColor="Red" IsVisible="{Binding ErrorMessage, Converter={StaticResource NullInvisibility}}" />
+                       FontSize="Small" TextColor="Red" 
+                       IsVisible="{Binding ErrorMessage, Converter={StaticResource NullInvisibility}}" />
 
                 <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
 

@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
-    <ScrollView
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/welcome"
+            android:text="@string/welcome_unknown"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="12dp">
-            <TextView
-                android:text="This is a complex native Xamarin.Android AXML layout.\n\nIt really took me a long time to do!\n\nI hope you enjoyed using the embedded Xamarin.Forms login view made with XAML. It has all the usual things that you may need: data binding, converters, resource dictionaries, etc."
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:id="@+id/textView" />
-        </RelativeLayout>
-    </ScrollView>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@android:drawable/ic_dialog_email"
-        app:elevation="4dp" />
-</android.support.design.widget.CoordinatorLayout>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="12dp" />
+        <TextView
+            android:text="@string/user_info"
+            android:id="@+id/user_info"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="12dp" />
+        <TextView
+            android:text="@string/info"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="12dp" />
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="12dp" />
+    </LinearLayout>
+</ScrollView>
