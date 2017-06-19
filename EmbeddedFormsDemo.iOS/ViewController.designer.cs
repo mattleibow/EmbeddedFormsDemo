@@ -25,6 +25,10 @@ namespace EmbeddedFormsDemo.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel welcomeLabel { get; set; }
 
+        [Action ("OnLoginClicked:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void OnLoginClicked (UIKit.UIButton sender);
+
         [Action ("OnSegmentChanged:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void OnSegmentChanged (UIKit.UISegmentedControl sender);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="87">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController" title="Embedded Views">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,22 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="35">
-                                <rect key="frame" x="241" y="260" width="119" height="29"/>
-                                <segments>
-                                    <segment title="Native"/>
-                                    <segment title="Control"/>
-                                </segments>
-                                <connections>
-                                    <action selector="OnSegmentChanged:" destination="BYZ-38-t0r" id="54" eventType="valueChanged"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" usesAttributedText="YES">
-                                <rect key="frame" x="20" y="40" width="560" height="21"/>
+                                <rect key="frame" x="20" y="84" width="560" height="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Welcome back User!">
+                                    <fragment content="Welcome to the app, stranger!">
                                         <attributes>
                                             <font key="NSFont" name="HelveticaNeue-Bold" family="Helvetica Neue" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -42,7 +32,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="47" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
-                                <rect key="frame" x="20" y="81" width="560" height="159"/>
+                                <rect key="frame" x="20" y="125" width="560" height="159"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -56,12 +46,42 @@
                                 </attributedString>
                                 <string key="text">You see that name above? It is random. You are not a different person.  But, that is not what we are doing here. We are showing you how to move between a native view controller and a Xamarin.Forms view controller.  The login page was 100% cross-platform, Xamarin.Forms. This page is pure native Xamarin.iOS goodness. It was created with storyboards and below is a nice segmented control.</string>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="35">
+                                <rect key="frame" x="241" y="304" width="119" height="29"/>
+                                <segments>
+                                    <segment title="Native"/>
+                                    <segment title="Control"/>
+                                </segments>
+                                <connections>
+                                    <action selector="OnSegmentChanged:" destination="BYZ-38-t0r" id="54" eventType="valueChanged"/>
+                                </connections>
+                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" text="You selected something...">
-                                <rect key="frame" x="202" y="308" width="196" height="20"/>
+                                <rect key="frame" x="202" y="352" width="196" height="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="63" translatesAutoresizingMaskIntoConstraints="NO" buttonType="roundedRect">
+                                <rect key="frame" x="249" y="392" width="102" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.074509803921568626" green="0.58823529411764708" blue="0.94117647058823528" alpha="1"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <constraints>
+                                    <constraint id="66" firstItem="63" firstAttribute="height" constant="30"/>
+                                    <constraint id="67" firstItem="63" firstAttribute="width" constant="102"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="OnLoginClicked:" destination="BYZ-38-t0r" id="68" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="40" firstItem="38" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20"/>
@@ -74,6 +94,8 @@
                             <constraint id="52" firstItem="35" firstAttribute="top" secondItem="47" secondAttribute="bottom" constant="20"/>
                             <constraint id="56" firstItem="55" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
                             <constraint id="57" firstItem="55" firstAttribute="top" secondItem="35" secondAttribute="bottom" constant="20"/>
+                            <constraint id="64" firstItem="63" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="65" firstItem="63" firstAttribute="top" secondItem="55" secondAttribute="bottom" constant="20"/>
                         </constraints>
                     </view>
                     <connections>
@@ -84,7 +106,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="4"/>
+            <point key="canvasLocation" x="944" y="10"/>
+        </scene>
+        <scene sceneID="86">
+            <objects>
+                <navigationController id="87" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="89">
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uTL-93-aIz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="11"/>
         </scene>
     </scenes>
 </document>
