@@ -22,6 +22,8 @@ namespace EmbeddedFormsDemo.UWP
 			Suspending += OnSuspending;
 		}
 
+		public static LaunchActivatedEventArgs LastLaunchEventArgs { get; private set; }
+
 		/// <summary>
 		/// Invoked when the application is launched normally by the end user.  Other entry points
 		/// will be used such as when the application is launched to open a specific file.
@@ -40,8 +42,7 @@ namespace EmbeddedFormsDemo.UWP
 
 				rootFrame.NavigationFailed += OnNavigationFailed;
 
-				// initialize Xamarin.Forms so we can use it later
-				Xamarin.Forms.Forms.Init(e);
+				LastLaunchEventArgs = e;
 
 				if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
 				{

@@ -14,23 +14,32 @@
     </Page.Resources>
 
     <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Padding="24" Visibility="{Binding WelcomeText, Converter={StaticResource NullInvisibility}}">
+        <StackPanel Padding="24">
 
-            <TextBlock Text="{Binding WelcomeText}" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,12" />
+            <TextBlock Text="{Binding WelcomeText}"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Margin="0,0,0,12" TextAlignment="Center" />
 
-            <TextBlock Text="Yes, that name you see above is just random, you are not a new person after running this app." Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+            <TextBlock Text="Yes, that name you see above is just random, you are not a new person after running this app."
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,0,12" TextAlignment="Center"
+                       Visibility="{Binding User, Converter={StaticResource NullInvisibility}}" />
 
-            <TextBlock Text="As you can see by this screen, I have mad native UWP development skillz - that's right, with a 'z'." Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+            <TextBlock Text="As you can see by this screen, I have mad native UWP development skillz - that's right, with a 'z'."
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,0,12" TextAlignment="Center" />
 
-            <TextBlock Text="Anyway, back to what we are really here for: this is a native page, but, that login screen is 100% shared code!" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+            <TextBlock Text="Anyway, back to what we are really here for: this is a native page, but, that login screen is 100% shared code!"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,0,12" TextAlignment="Center" />
 
-            <TextBlock Text="And, just to &quot;prove&quot; that we are native, click the button below to see a native UWP element!" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,12" />
+            <TextBlock Text="And, just to &quot;prove&quot; that we are native, click the button below to see a native UWP element!"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,0,12" TextAlignment="Center" />
 
-            <Button Content="Open flyout">
+            <Button Content="Login" Margin="0,0,0,12" HorizontalAlignment="Center">
                 <Button.Flyout>
-                    <Flyout>
-                        <TextBlock TextWrapping="Wrap" Text="This is some text in a flyout."/>
-                    </Flyout>
+                    <Flyout Opening="OnLoginFlyoutOpening" />
                 </Button.Flyout>
             </Button>
 

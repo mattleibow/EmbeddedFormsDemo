@@ -42,7 +42,7 @@ namespace EmbeddedFormsDemo.Views
 			// if there was an error
 			if (user == null)
 			{
-				ErrorMessage = "There was a problem logging in, make sure you have entered a username and password. Any username and password.";
+				ErrorMessage = "There was a problem logging in.";
 			}
 			else
 			{

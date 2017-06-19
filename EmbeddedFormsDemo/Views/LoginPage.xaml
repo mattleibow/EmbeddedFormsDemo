@@ -18,8 +18,14 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-            <StackLayout Padding="24" Spacing="12" Grid.Row="1">
+
+            <StackLayout Spacing="12" Grid.Row="1">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="24" iOS="24" WinPhone="0" />
+                </StackLayout.Padding>
+
+                <Label Text="Enter any username/password:" HorizontalTextAlignment="Center"
+                       FontSize="12" />
 
                 <Entry Keyboard="Email" Placeholder="username or email"
                        Text="{Binding UserName}" HorizontalTextAlignment="Center"
@@ -32,7 +38,7 @@
                         IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}" />
 
                 <Label Text="{Binding ErrorMessage}" HorizontalTextAlignment="Center"
-                       FontSize="Small" TextColor="Red" 
+                       FontSize="12" TextColor="Red" 
                        IsVisible="{Binding ErrorMessage, Converter={StaticResource NullInvisibility}}" />
 
                 <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
